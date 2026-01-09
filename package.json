@@ -1,0 +1,20 @@
+{
+  "name": "doict-crawler-service",
+  "version": "0.1.0",
+  "description": "Microservice to send links to Apify and persist tasks",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
+  },
+  "dependencies": {
+    "axios": "^1.4.0",
+    "dotenv": "^16.3.1",
+    "minimist": "^1.2.8",
+    "mysql2": "^3.4.0",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.11"
+  }
+}
