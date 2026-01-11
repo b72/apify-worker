@@ -16,7 +16,7 @@ npm install
 - Process all links:
 
 ```bash
-node index.js
+node src/index.js
 ```
 
 
