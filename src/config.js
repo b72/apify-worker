@@ -18,6 +18,9 @@ class Config {
       interval: process.env.PROCESS_INTERVAL ? parseInt(process.env.PROCESS_INTERVAL, 10) : 3000,
       post: {
         crawl_config: { resultsLimit: 10, includeNestedComments: false, viewOption: "RANKED_UNFILTERED" }
+      },
+      page:{
+        crawl_config: { resultsLimit: 2, captionText: true }
       }
     };
     this.toSqlDatetime = dt => {
