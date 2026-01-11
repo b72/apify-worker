@@ -19,24 +19,7 @@ npm install
 node index.js
 ```
 
-- Process a single link by id:
-
-```bash
-node index.js --link-id=123
-```
-
-- Process all links with a batch id:
-
-```bash
-node index.js --batch-id=5
-```
-
-- Process a single URL (without DB):
-
-```bash
-node index.js --url="https://www.facebook.com/somepage"
-```
 
 Notes:
-- The script inserts a `tasks` row with `status` set to `started` and updates it to `completed` or `failed` after the Apify response.
+- The script can be run using pm2
 - Adjust parallelization and error handling based on volume.
