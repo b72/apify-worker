@@ -7,6 +7,8 @@ const CommentProcessor = require('./processors/CommentProcessor');
 const LinkRepository = require('./repositories/LinkRepository');
 const TaskRepository = require('./repositories/TaskRepository');
 const CommentRepository = require('./repositories/CommentRepository');
+const KeywordRepostitory = require('./repositories/KeywordRepository');
+const KeywordProcessor = require('./processors/KeywordProcessor');
 
 
 async function sleep(ms) {
@@ -14,7 +16,23 @@ async function sleep(ms) {
 }
 
 async function main() {
-  const pageProcessor = new PageProcessor(
+  const keywordProcessor = new KeywordProcessor(
+    new KeywordRepostitory()
+  )
+
+  while (true) {
+    try {
+      await keywordProcessor.process();
+
+      if (config.app.interval > 0) {
+        console.log(`Waiting for ${config.app.interval} ms before next processing...`);
+        await sleep(config.app.interval);
+      }
+    } catch (err) {
+      console.error('Unexpected error in main loop:', err);
+    }
+  }
+/*   const pageProcessor = new PageProcessor(
     new LinkRepository()
   );
 
@@ -54,7 +72,7 @@ async function main() {
     } catch (err) {
       console.error('Unexpected error in main loop:', err);
     }
-  }
+  } */
 }
 
 main().catch(err => {
